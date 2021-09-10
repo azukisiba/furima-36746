@@ -71,8 +71,8 @@
 | area_id      | integer    | null: false                    |
 | city         | string     | null: false                    |
 | number       | string     | null: false                    |
-| building     | text       |                                |
-| phone-num    | string     | null: false                    |
+| building     | string     |                                |
+| phone_num    | string     | null: false                    |
 | order        | references | null: false, foreign_key: true |
 
 ### Association
