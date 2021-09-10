@@ -5,26 +5,23 @@
 | Column             | Type    | Options     |
 | ------------------ | ------- | ----------- |
 | email              | string  | null: false |
-| password           | string  | null: false |
+| encrypted_password | string  | null: false |
 | nickname           | string  | null: false |
 | kanji_name_first   | string  | null: false |
 | kanji_name_last    | string  | null: false |
 | kana_name_first    | string  | null: false |
 | kana_name_last     | string  | null: false |
-| birth_year_id      | integer | null: false |
-| birth_month _id    | integer | null: false |
-| birthday_id        | integer | null: false |
+| birth_date         | date    | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :orders
+- has_many :order
 
 ## items テーブル
 
 | Column             | Type          | Options                        |
 | ------------------ | ------------- | ------------------------------ |
-| image              |         ActiveStorage                          |
 | title              | string        | null: false                    |
 | item_description   | text          | null: false                    |
 | category_id        | integer       | null: false                    |
@@ -37,7 +34,7 @@
 
 ### Association
 
-- has_one :orders
+- has_one :order
 - belongs_to :user
 
 ## comments テーブル
@@ -57,7 +54,6 @@
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| address     | references | null: false, foreign_key: true |
 | user        | references | null: false, foreign_key: true |
 | item        | references | null: false, foreign_key: true |
 
@@ -77,8 +73,8 @@
 | number       | integer    | null: false                    |
 | building     | text       |                                |
 | phone-num    | integer    | null: false                    |
+| order        | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :order
