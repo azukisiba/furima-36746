@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :order
+- has_many :orders
 
 ## items テーブル
 
@@ -67,12 +67,12 @@
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| Postal_code  | integer    | null: false                    |
+| postal_code  | string     | null: false                    |
 | area_id      | integer    | null: false                    |
-| city         | integer    | null: false                    |
-| number       | integer    | null: false                    |
+| city         | string     | null: false                    |
+| number       | string     | null: false                    |
 | building     | text       |                                |
-| phone-num    | integer    | null: false                    |
+| phone-num    | string     | null: false                    |
 | order        | references | null: false, foreign_key: true |
 
 ### Association
