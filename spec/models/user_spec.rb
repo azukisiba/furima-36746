@@ -32,7 +32,6 @@ RSpec.describe User, type: :model do
       it 'emailは@無しでは登録できない' do
         @user.email = 'testtest.com'
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it '漢字名(苗字)が空では登録できない' do
