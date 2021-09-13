@@ -74,11 +74,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Kana name first is invalid')
       end
-      it 'カナ名(名前)が半角では登録できない' do
-        @user.kana_name_first = 'tata'
-        @user.valid?
-        expect(@user.errors.full_messages).to include('Kana name first is invalid')
-      end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
