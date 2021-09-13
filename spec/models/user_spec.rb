@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
         @user.email = 'testtest.com'
         @user.valid?
         binding.pry
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it '漢字名(苗字)が空では登録できない' do
         @user.kanji_name_last = ''
@@ -111,7 +111,7 @@ RSpec.describe User, type: :model do
       it 'passwordは全角で登録できない' do
         @user.password = 'パスワード'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'birth_dateが空では保存できない' do
         @user.birth_date = ''
