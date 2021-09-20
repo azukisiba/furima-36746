@@ -8,7 +8,6 @@ class Credit
   validates :area_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :city, presence: true
   validates :number, presence: true
-  validates :building, presence: true
   validates :phone_num, presence: true
 
   def save
