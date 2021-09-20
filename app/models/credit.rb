@@ -1,6 +1,6 @@
 class Credit
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :area_id, :city, :number, :building, :phone_num, :order_id
+  attr_accessor :user_id, :item_id, :postal_code, :area_id, :city, :number, :building, :phone_num
   
   validates :user_id, presence: true
   validates :item_id, presence: true
@@ -10,10 +10,9 @@ class Credit
   validates :number, presence: true
   validates :building, presence: true
   validates :phone_num, presence: true
-  validates :order_id, presence: true
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
-    Address.create(postal_code: postal_code, area_id: area_id, city: city, phone_num: phone_num, building: building, order_id: order_id)
+    Address.create(postal_code: postal_code, area_id: area_id, city: city, phone_num: phone_num, building: building, order_id: order.id)
   end
 end
