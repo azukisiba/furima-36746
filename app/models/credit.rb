@@ -12,6 +12,6 @@ class Credit
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
-    Address.create(postal_code: postal_code, area_id: area_id, city: city, phone_num: phone_num, building: building, order_id: order.id)
+    Address.create(postal_code: postal_code, area_id: area_id, city: city, number: number, phone_num: phone_num, building: building, order_id: order.id)
   end
 end
