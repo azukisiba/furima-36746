@@ -40,9 +40,9 @@ RSpec.describe Credit, type: :model do
         expect(@credit.errors.full_messages).to include("City can't be blank")
       end
       it '番地が空だと保存できない' do
-        @credit.number = ""
+        @credit.add_number = ""
         @credit.valid?
-        expect(@credit.errors.full_messages).to include("Number can't be blank")
+        expect(@credit.errors.full_messages).to include("Add number can't be blank")
       end
       it '電話番号が空だと保存できない' do
         @credit.phone_num = ""
