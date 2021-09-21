@@ -54,10 +54,25 @@ RSpec.describe Credit, type: :model do
         @credit.valid?
         expect(@credit.errors.full_messages).to include('Phone num is invalid')
       end
+      it '電話番号は半角数値のみでしか購入できない' do
+        @credit.phone_num = '０９０１１１１２２２２'
+        @credit.valid?
+        expect(@credit.errors.full_messages).to include('Phone num is invalid')
+      end
       it 'tokenが空では登録できないこと' do
         @credit.token = nil
         @credit.valid?
         expect(@credit.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'userが紐付いていなければ購入できない' do
+        @credit.user_id = ''
+        @credit.valid?
+        expect(@credit.errors.full_messages).to include("User can't be blank")
+      end
+      it 'itemが紐付いていなければ購入できない' do
+        @credit.item_id = ''
+        @credit.valid?
+        expect(@credit.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
