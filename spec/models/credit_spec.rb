@@ -54,6 +54,11 @@ RSpec.describe Credit, type: :model do
         @credit.valid?
         expect(@credit.errors.full_messages).to include("Phone num is invalid")
       end
+      it "tokenが空では登録できないこと" do
+        @credit.token = nil
+        @credit.valid?
+        expect(@credit.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
