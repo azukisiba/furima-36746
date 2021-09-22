@@ -54,6 +54,16 @@ RSpec.describe Credit, type: :model do
         @credit.valid?
         expect(@credit.errors.full_messages).to include('Phone num is invalid')
       end
+      it 'ハイフンなしでも、10桁未満だと購入できない' do
+        @credit.phone_num = '090111222'
+        @credit.valid?
+        expect(@credit.errors.full_messages).to include('Phone num is invalid')
+      end
+      it 'ハイフンなしでも、11桁を超えると購入できない' do
+        @credit.phone_num = '090111122222'
+        @credit.valid?
+        expect(@credit.errors.full_messages).to include('Phone num is invalid')
+      end
       it '電話番号は半角数値のみでしか購入できない' do
         @credit.phone_num = '０９０１１１１２２２２'
         @credit.valid?
