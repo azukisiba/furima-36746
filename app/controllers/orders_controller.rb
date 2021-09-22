@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: :index
-  before_action :item_find, only: [:index, :create]
+  before_action :authenticate_user!
+  before_action :item_find
 
   def index
     redirect_to root_path if @item.user == current_user || @item.order.present?
