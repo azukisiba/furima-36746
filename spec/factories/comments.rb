@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :comment do
-    text {'こんにちは'}
+    text { 'こんにちは' }
   end
 end

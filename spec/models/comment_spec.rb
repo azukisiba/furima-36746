@@ -22,12 +22,12 @@ RSpec.describe Credit, type: :model do
       it 'userが紐づいていなければの場合には保存できない' do
         @comment.user_id = ''
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("User must exist")
+        expect(@comment.errors.full_messages).to include('User must exist')
       end
       it 'itemが紐づいていなければの場合には保存できない' do
         @comment.item_id = ''
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Item must exist")
+        expect(@comment.errors.full_messages).to include('Item must exist')
       end
     end
   end
