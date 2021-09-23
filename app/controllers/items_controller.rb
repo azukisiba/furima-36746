@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @item.comments
+    @comments = @item.comments.order("created_at DESC").limit(5)
   end
 
   def edit
